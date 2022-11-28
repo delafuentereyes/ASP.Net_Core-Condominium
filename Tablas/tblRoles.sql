@@ -1,0 +1,9 @@
+USE ProyectoBD2;
+GO
+
+CREATE TABLE tblRoles(
+	ID_Rol INT IDENTITY(1,1) NOT NULL,
+	Tipo_Rol VARCHAR(100) NOT NULL,
+
+	CONSTRAINT PKtblRoles PRIMARY KEY (ID_Rol),
+)
