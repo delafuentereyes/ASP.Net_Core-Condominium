@@ -1,6 +1,7 @@
 CREATE DATABASE ProyectoBD2;
-USE ProyectoBD2;
 GO
+USE ProyectoBD2;
+
 DROP DATABASE ProyectoBD2;
 
 CREATE TABLE tblRoles(
@@ -49,8 +50,6 @@ CREATE TABLE tblUsuarios(
 )
 GO
 
-TRUNCATE TABLE tblUsuarios;
-
 ------------------------------------------------------------------------------------------------
 
 CREATE TABLE tblVehiculos(
@@ -90,7 +89,6 @@ CREATE TABLE tblVisitas(
 	ID_TipoVisita INT NOT NULL,
 	Cedula_Visita VARCHAR(100) NOT NULL,
 	Nombre_Visita VARCHAR(100) NOT NULL,
-	Color_Vehiculo VARCHAR(10) NOT NULL,
 	
 	ID_Vehiculo INT NOT NULL,
 

@@ -1,6 +1,6 @@
 USE ProyectoBD2;
 
-
+USE ProyectoBD2;
 CREATE PROCEDURE spInsertUsuarios
 	@nombre_Usuario VARCHAR(100),
 	@cedula_Usuario VARCHAR(100),
