@@ -1,13 +1,14 @@
 CREATE DATABASE ProyectoBD2;
 USE ProyectoBD2;
 GO
+DROP DATABASE ProyectoBD2;
 
 CREATE TABLE tblRoles(
 	ID_Rol INT IDENTITY(1,1) NOT NULL,
 	Tipo_Rol VARCHAR(100) NOT NULL,
 
 	CONSTRAINT PKtblRoles PRIMARY KEY (ID_Rol),
-)
+	)
 GO
 
 CREATE TABLE tblPHabitacionales(
@@ -29,6 +30,7 @@ CREATE TABLE tblUsuarios(
 	Cedula_Usuario VARCHAR (100) NOT NULL,
 	Email_Usuario VARCHAR (100) NOT NULL,
 	Telefono_Usuario VARCHAR (20) NOT NULL,
+	Foto_Usuario VARCHAR (200) NOT NULL,
 	Usuario VARCHAR(50) NOT NULL,
 	Pass VARCHAR(50) NOT NULL,
 
@@ -46,6 +48,8 @@ CREATE TABLE tblUsuarios(
 	CONSTRAINT UNQtblUsuarios UNIQUE (Cedula_Usuario)
 )
 GO
+
+TRUNCATE TABLE tblUsuarios;
 
 ------------------------------------------------------------------------------------------------
 
