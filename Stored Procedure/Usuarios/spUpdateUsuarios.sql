@@ -1,3 +1,7 @@
+USE ProyectoBD2
+GO
+
+
 CREATE PROCEDURE spUpdateUsuarios
     @id_Usuario INT,
     @nombre_Usuario VARCHAR(100),
@@ -24,7 +28,7 @@ BEGIN
             Usuario = @usuario,
             Pass = @pass,
             ID_Rol = @id_Rol,
-			ID_Habitacional=@id_Habitacional
+			ID_Habitacional = @id_Habitacional
 
         WHERE ID_Usuario = @id_Usuario;
 END

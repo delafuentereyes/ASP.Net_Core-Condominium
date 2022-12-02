@@ -1,4 +1,5 @@
-USE ProyectoBD2;
+USE ProyectoBD2
+GO
 
 
 CREATE PROCEDURE spInsertPH
@@ -12,8 +13,8 @@ BEGIN
 		INSERT INTO tblPHabitacionales (Logo_Habitacional, Codigo_Habitacional, Nombre_Habitacional, 
 								Direccion_Habitacional, Telefono_Oficina)
 
-		VALUES (@logo_Habitacional ,@codigo_Habitacional,@nombre_Habitacional,
-			    @direccion_Habitacional,@telefono_Oficina)
+		VALUES (@logo_Habitacional, @codigo_Habitacional, @nombre_Habitacional,
+			    @direccion_Habitacional, @telefono_Oficina)
 END
 GO
 

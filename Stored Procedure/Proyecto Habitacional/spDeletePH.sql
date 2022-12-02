@@ -1,7 +1,8 @@
+USE ProyectoBD2
+GO
+
 CREATE PROCEDURE spDeletePH
     @id_Habitacional INT
-
-
 
 AS
 BEGIN

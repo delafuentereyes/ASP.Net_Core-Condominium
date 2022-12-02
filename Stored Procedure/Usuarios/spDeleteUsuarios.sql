@@ -1,3 +1,6 @@
+USE ProyectoBD2
+GO
+
 CREATE PROCEDURE spDeleteUsuarios
     @id_Usuario INT
 

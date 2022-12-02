@@ -1,4 +1,5 @@
-USE ProyectoBD2;
+USE ProyectoBD2
+GO
 
 CREATE PROCEDURE spInsertRoles
 	@tipo_rol VARCHAR(100)
