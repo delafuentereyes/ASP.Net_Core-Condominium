@@ -4,8 +4,6 @@ GO
 CREATE OR ALTER PROCEDURE spDeleteVisitas
     @id_Visita INT
 
-
-
 AS
 BEGIN
         DELETE FROM tblVisitas

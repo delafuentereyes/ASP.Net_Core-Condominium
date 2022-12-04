@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Universidad\\6° Cuatrimestre\\Base de Datos 2\\Trabajos\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj": {}
+    "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj": {}
   },
   "projects": {
-    "D:\\Universidad\\6° Cuatrimestre\\Base de Datos 2\\Trabajos\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj": {
+    "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Universidad\\6° Cuatrimestre\\Base de Datos 2\\Trabajos\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj",
+        "projectUniqueName": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj",
         "projectName": "Proyecto_BD2",
-        "projectPath": "D:\\Universidad\\6° Cuatrimestre\\Base de Datos 2\\Trabajos\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj",
-        "packagesPath": "C:\\Users\\jeiso\\.nuget\\packages\\",
-        "outputPath": "D:\\Universidad\\6° Cuatrimestre\\Base de Datos 2\\Trabajos\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\obj\\",
+        "projectPath": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj",
+        "packagesPath": "C:\\Users\\jesus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jeiso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -51,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -63,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

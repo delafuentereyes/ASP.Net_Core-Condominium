@@ -1,7 +1,7 @@
 USE ProyectoBD2
 GO
 
-CREATE PROCEDURE spInsertVisitas
+CREATE OR ALTER PROCEDURE spInsertVisitas
 	@id_TipoVisita INT,
 	@cedula_Visita VARCHAR(100),
 	@nombre_Visita VARCHAR(100),

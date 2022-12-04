@@ -1,7 +1,7 @@
 USE ProyectoBD2
 GO
 
-CREATE PROCEDURE spInsertTipoVisitas
+CREATE OR ALTER PROCEDURE spInsertTipoVisitas
 	@tipoVisita VARCHAR(100)
 AS 
 BEGIN

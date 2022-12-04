@@ -1,7 +1,7 @@
 USE ProyectoBD2
 GO
 
-CREATE PROCEDURE spCreateVehiculos
+CREATE OR ALTER PROCEDURE spCreateVehiculos
 	@marca_Vehiculo VARCHAR(100),
 	@modelo_Vehiculo VARCHAR(100),
 	@placa_Vehiculo VARCHAR(20),
@@ -15,6 +15,7 @@ END
 GO
 
 EXEC spCreateVehiculos 'Toyota', 'Hilux', '199202', 'Blanco'
+EXEC spCreateVehiculos 'Nissan', 'Frontier', '186252', 'Azul'
 GO
 
 SELECT * FROM tblVehiculos

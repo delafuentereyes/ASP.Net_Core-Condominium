@@ -16,7 +16,6 @@ BEGIN
 			Modelo_Vehiculo = @modelo_Vehiculo, 
 			Placa_Vehiculo = @placa_Vehiculo,
 			Color_Vehiculo = @color_Vehiculo
-
 		WHERE ID_Vehiculo = @id_Vehiculo;
 END		 
 GO

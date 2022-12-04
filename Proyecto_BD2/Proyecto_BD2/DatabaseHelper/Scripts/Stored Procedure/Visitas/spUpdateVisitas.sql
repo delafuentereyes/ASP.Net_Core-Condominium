@@ -14,7 +14,6 @@ BEGIN
 			Cedula_Visita = @cedula_Visita,
 			Nombre_Visita = @nombre_Visita,
 			ID_Vehiculo = @id_Vehiculo
-
 		WHERE ID_Visita = @id_Visita
 END
 GO

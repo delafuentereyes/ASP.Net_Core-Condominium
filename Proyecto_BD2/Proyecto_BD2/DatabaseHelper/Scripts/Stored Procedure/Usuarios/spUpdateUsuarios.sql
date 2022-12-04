@@ -2,7 +2,7 @@ USE ProyectoBD2
 GO
 
 
-CREATE PROCEDURE spUpdateUsuarios
+CREATE OR ALTER PROCEDURE spUpdateUsuarios
     @id_Usuario INT,
     @nombre_Usuario VARCHAR(100),
     @cedula_Usuario VARCHAR(100),

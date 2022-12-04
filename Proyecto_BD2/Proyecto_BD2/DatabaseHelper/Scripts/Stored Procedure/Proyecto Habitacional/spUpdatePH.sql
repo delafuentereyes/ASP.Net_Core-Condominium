@@ -1,7 +1,7 @@
 USE ProyectoBD2
 GO
 
-CREATE PROCEDURE spUpdatePH
+CREATE OR ALTER PROCEDURE spUpdatePH
     @id_Habitacional INT,
     @logo_Habitacional VARCHAR (100),
     @codigo_Habitacional VARCHAR (100),

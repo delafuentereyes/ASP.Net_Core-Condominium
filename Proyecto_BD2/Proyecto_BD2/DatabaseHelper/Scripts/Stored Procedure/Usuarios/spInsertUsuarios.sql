@@ -1,7 +1,7 @@
 USE ProyectoBD2;
 GO
 
-CREATE PROCEDURE spInsertUsuarios
+CREATE OR ALTER PROCEDURE spInsertUsuarios
 	@nombre_Usuario VARCHAR(100),
 	@cedula_Usuario VARCHAR(100),
 	@email_Usuario VARCHAR (100),
@@ -21,7 +21,7 @@ END
 GO
 
 EXEC spInsertUsuarios 'Jesús De la Fuente', '1-1855-0200', 'jesusreyes_7@outlook.com',
-					  '84648776', 'PNG','Bychuzz','jesus123',1,1;
+					  '84648776', 'PNG','Bychuzz','jesus123', 1, 1;
 GO
 
 SELECT * FROM tblUsuarios;
