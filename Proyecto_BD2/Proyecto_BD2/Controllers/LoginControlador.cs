@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Proyecto_BD2.DatabaseHelper;
+using Proyecto_BD.DatabaseHelper;
 using System.Data.SqlClient;
 using System.Data;
 using Proyecto_BD2.Models;
@@ -31,7 +31,7 @@ namespace Proyecto_BD2.Controllers
                 HttpContext.Session.SetString("userSession", strUser);
                 HttpContext.Session.SetString("userAccessListSession", strUserAccessList);
 
-                return RedirectToAction(strUserAccessList[0].Action, strUserAccessList[0].Controller);
+                return RedirectToAction(userAccessList[0].Action, userAccessList[0].Controller);
             }
 
             ViewBag.Error = new ErrorHandler()
@@ -83,21 +83,21 @@ namespace Proyecto_BD2.Controllers
             }
         }
 
-        //AQUI QUEDÉ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         private List<UserAccess>? GetUserAccess(string id_Usuario)
         {
             List<UserAccess> strUserAccessList = new List<UserAccess>();
 
-            DataTable ds = DatabaseHelper.ExecuteStoreProcedure("[dbo].[spGetUserAccess]", new List<SqlParameter>()
+            DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetUsuarioAccess", new List<SqlParameter>()
             {
-                new SqlParameter("@BusinessEntityID", businessEntityID),
+                new SqlParameter("@id_Usuario", id_Usuario),
             });
 
             foreach (DataRow row in ds.Rows)
             {
                 strUserAccessList.Add(new UserAccess
                 {
-                    BusinessEntityID = row["BusinessEntityID"].ToString(),
+                    ID_Usuario = row["ID_Usuario"].ToString(),
                     Controller = row["Controller"].ToString(),
                     Action = row["Action"].ToString(),
                     DatabaseAction = row["DatabaseAction"].ToString(),

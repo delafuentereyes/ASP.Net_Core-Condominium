@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Proyecto_BD2.DatabaseHelper
+namespace Proyecto_BD.DatabaseHelper
 {
     public class DatabaseHelper
     {
@@ -48,7 +48,7 @@ namespace Proyecto_BD2.DatabaseHelper
             }
         }
 
-        public static void ExecStoreProcedure(string procedure, List<SqlParameter> param)
+       public static void ExecStoreProcedure(string procedure, List<SqlParameter> param)
         {
             try
             {
