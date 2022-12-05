@@ -2,7 +2,7 @@
 {
     public class User
     {
-        public string? ID_usuario { get; set; }
+        public string? ID_Usuario { get; set; }
         public string? Nombre_Usuario { get; set; }
         public string? Cedula_Usuario { get; set; }
         public string? Email_Usuario { get; set; }

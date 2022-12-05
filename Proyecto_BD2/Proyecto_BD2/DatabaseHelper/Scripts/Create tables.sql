@@ -100,5 +100,19 @@ CREATE TABLE tblVisitas(
 )
 GO
 
+CREATE TABLE tblUsuarioAccess(
+    ID_Usuario [int] NOT NULL,
+    [Controller] [varchar](50) NULL,
+    [Action] [varchar](50) NULL,
+    [DatabaseAction] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+
+
+
+ALTER TABLE tblUsuarioAccess  WITH CHECK ADD  CONSTRAINT FKtblUsuarioAccess FOREIGN KEY(ID_Usuario)
+REFERENCES tblUsuarios (ID_Usuario)
+GO
+
 
 

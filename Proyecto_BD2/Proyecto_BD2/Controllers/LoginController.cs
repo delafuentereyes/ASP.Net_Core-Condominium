@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Proyecto_BD2.Controllers
 {
-    public class LoginControlador : Controller
+    public class LoginController : Controller
     {
         public ActionResult Index()
         {
@@ -17,13 +17,13 @@ namespace Proyecto_BD2.Controllers
         }
 
         [HttpPost]
-        public ActionResult ValidarLogin(string txtUsuario, string txtPass)
+        public ActionResult ValidateLogin(string txtUsuario, string txtPass)
         {
             User? user = GetUser(txtUsuario, txtPass);
 
             if (user != null)
             {
-                List<UserAccess>? userAccessList = GetUserAccess(user.ID_usuario);
+                List<UserAccess>? userAccessList = GetUserAccess(user.ID_Usuario);
 
                 string strUser = JsonConvert.SerializeObject(user);
                 string strUserAccessList = JsonConvert.SerializeObject(userAccessList);
@@ -56,7 +56,7 @@ namespace Proyecto_BD2.Controllers
             {
                 User user = new User
                 {
-                    ID_usuario = ds.Rows[0]["ID_Usuario"].ToString(),
+                    ID_Usuario = ds.Rows[0]["ID_Usuario"].ToString(),
                     Usuario = txtUsuario,
                     Nombre_Usuario = ds.Rows[0]["Nombre_Usuario"].ToString(),
                     Cedula_Usuario = ds.Rows[0]["Cedula_Usuario"].ToString(),
