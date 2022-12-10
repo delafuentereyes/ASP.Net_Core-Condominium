@@ -5,6 +5,69 @@
 @Html.Partial("userAccess")
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<div class="card">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"> Perfil </button>
+			</li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+				<div class="row mt-2 justify-content-center">
+					<div class="col col-md-9 col-lg-7 col-xl-5">
+						<div class="card" style="border-radius: 15px;">
+							<div class="card-body p-4">
+								<div class="d-flex text-black">
+									<div class="flex-shrink-0">
+										<img src="..\@ViewBag.User.Foto_Usuario"
+											 class="img-fluid" style="width: 180px; border-radius: 10px; height:240px" />
+										<input id="file-input" type="file" name="photo" style="display:none" />
+										<a asp-action="DeletePhoto" asp-controller="Home" style="position:absolute;margin-left: -22px;color:black">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+												<path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+											</svg>
+										</a>
+									</div>
+									<div class="flex-grow-1 ms-3">
+										<h5 class="mb-1"> @ViewBag.User.Nombre_Usuario </h5>
+										<p class="mb-2 pb-1" style="color: #2b2a2a;"> @ViewBag.User.Cedula_Usuario </p>
+										<div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+											 style="background-color: #efefef;">
+											<div>
+												<p class="small text-muted mb-1"> E-Mail </p>
+												<p class="mb-0"> @ViewBag.User.Email_Usuario </p>
+											</div>
+											<div class="px-3">
+												<p class="small text-muted mb-1"> Teléfono </p>
+												<p class="mb-0"> @ViewBag.User.Telefono_Usuario </p>
+											</div>
+											<div>
+												<p class="small text-muted mb-1"> Rol </p>
+												<p class="mb-0"> @ViewBag.User.Tipo_Rol </p>
+											</div>
+											<div>
+												<p class="small text-muted mb-1"> Dirección </p>
+												<p class="mb-0"> @ViewBag.User.Direccion_Habitacional </p>
+											</div>
+										</div>
+										<form asp-action="UpdatePhoto" asp-controller="Home" method="post" enctype="multipart/form-data">
+											<div class="d-flex pt-1">
+												<div class="file-upload-wrapper">
+													<input type="file" name="photo" class="form-control" />
+												</div>
+											</div>
+											<div class="d-flex pt-1">
+												<button type="submit" class="btn btn-outline-primary me-1 flex-grow-1"> Actualizar foto </button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zKIMb8zj1CuVmGbw7RbEBOb11Jr0A7sRE8JSaqVVOEE=",
+  "Hash": "BDsuPVh4GaE3Pe1N3uaSn8d5pkxYVynbESc6VejeTe8=",
   "Source": "Proyecto_BD2",
   "BasePath": "_content/Proyecto_BD2",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\img\\0.jpg",
+      "SourceId": "Proyecto_BD2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\",
+      "BasePath": "_content/Proyecto_BD2",
+      "RelativePath": "img/0.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\0.jpg"
     },
     {
       "Identity": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\js\\site.js",
