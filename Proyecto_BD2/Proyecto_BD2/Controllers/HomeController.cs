@@ -2,8 +2,10 @@
 using Newtonsoft.Json;
 using Proyecto_BD.DatabaseHelper;
 using Proyecto_BD2.Models;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+
 
 namespace Proyecto_BD2.Controllers
 {
@@ -45,20 +47,20 @@ namespace Proyecto_BD2.Controllers
 			{
 				ViewBag.User = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("userSession"));
 
-				string fotoUsuario = Path.Combine("img\\", ViewBag.User.ID_Usuario + new FileInfo(foto.FileName).Extension);
+				string foto_Usuario = Path.Combine("img\\", ViewBag.User.ID_Usuario + new FileInfo(foto.FileName).Extension);
 
-				using (var stream = new FileStream(Directory.GetCurrentDirectory() + "\\wwwroot\\" + fotoUsuario, FileMode.Create))
+				using (var stream = new FileStream(Directory.GetCurrentDirectory() + "\\wwwroot\\" + foto_Usuario, FileMode.Create))
 				{
 					foto.CopyTo(stream);
 				}
 
 				DatabaseHelper.ExecStoreProcedure("spUpdateFotoUsuario", new List<SqlParameter>()
 				{
-					new SqlParameter("@foto_Usuario", fotoUsuario),
-					new SqlParameter("id_Usuario", ViewBag.User.ID_Usuario)
+					new SqlParameter("@foto_Usuario", foto_Usuario),
+					new SqlParameter("@id_Usuario", ViewBag.User.ID_Usuario)
 				});
 
-				ViewBag.User.Foto_Usuario = fotoUsuario;
+				ViewBag.User.Foto_Usuario = foto_Usuario;
 
 				return View("Index");
 			}
@@ -81,15 +83,15 @@ namespace Proyecto_BD2.Controllers
 			{
 				ViewBag.User = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("userSession"));
 
-				string fotoUsuario = "img\\0.jpg";
+				string foto_Usuario = "img\\0.jpg";
 
 				DatabaseHelper.ExecStoreProcedure("spUpdateFotoUsuario", new List<SqlParameter>()
 				{
-					new SqlParameter("@foto_Usuario", fotoUsuario),
+					new SqlParameter("@foto_Usuario", foto_Usuario),
 					new SqlParameter("@id_Usuario", ViewBag.User.ID_Usuario)
 				});
 
-				ViewBag.User.Foto_Usuario = fotoUsuario;
+				ViewBag.User.Foto_Usuario = foto_Usuario;
 
 				return View("Index");
 			}

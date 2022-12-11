@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BDsuPVh4GaE3Pe1N3uaSn8d5pkxYVynbESc6VejeTe8=",
+  "Hash": "58Ta6Wb4fjrtj/WxYMAJwCI7CXS1iiL+xlnsc+YHC3c=",
   "Source": "Proyecto_BD2",
   "BasePath": "_content/Proyecto_BD2",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\0.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\img\\1.jpg",
+      "SourceId": "Proyecto_BD2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\",
+      "BasePath": "_content/Proyecto_BD2",
+      "RelativePath": "img/1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\1.jpg"
     },
     {
       "Identity": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\js\\site.js",

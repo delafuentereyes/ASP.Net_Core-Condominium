@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_BD2.Models
 {
-    public class PH
+    public class Housing
     {
         public string? ID_Habitacional { get; set; }
         public string? Logo_Habitacional { get; set; }
