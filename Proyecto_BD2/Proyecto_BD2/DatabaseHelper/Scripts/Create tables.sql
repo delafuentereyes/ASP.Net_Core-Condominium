@@ -141,3 +141,14 @@ GO
 ALTER TABLE tblViviendas  WITH CHECK ADD FOREIGN KEY([ID_Habitacional])
 REFERENCES tblPHabitacionales ([ID_Habitacional])
 GO  
+
+CREATE TABLE UsuariosxPH(
+    ID_Usuario int NOT NULL,
+    ID_Habitacional int NOT NULL,
+
+CONSTRAINT PKUsuariosxPH PRIMARY KEY(ID_Usuario, ID_Habitacional),
+
+CONSTRAINT FKUsuariosxPH FOREIGN KEY(ID_Usuario) REFERENCES tblUsuarios(ID_Usuario),
+CONSTRAINT FKUsuariosxPH2 FOREIGN KEY(ID_Habitacional) REFERENCES tblPHabitacionales(ID_Habitacional)
+)
+GO
