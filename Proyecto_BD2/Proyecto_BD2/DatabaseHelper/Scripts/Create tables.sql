@@ -115,4 +115,27 @@ REFERENCES tblUsuarios (ID_Usuario)
 GO
 
 
+CREATE TABLE tblViviendas(
+    [ID_Vivienda] [int] IDENTITY(1,1) NOT NULL,
+    [Numero_Vivienda] [varchar](100) NOT NULL,
+    [Desc_Vivienda] [varchar](100) NULL,
+    [Numero_Habitaciones] [int] NULL,
+    [Cochera] [int] NULL,
+    [ID_Habitacional] [int] NOT NULL,
+    [ID_Usuario] [int] NULL,
+ CONSTRAINT PK_tblViviendas PRIMARY KEY CLUSTERED 
+(
+    [ID_Vivienda] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE tblViviendas  WITH CHECK ADD FOREIGN KEY(ID_Usuario)
+REFERENCES tblUsuarios (ID_Usuario)
+GO
+
+ALTER TABLE tblViviendas  WITH CHECK ADD FOREIGN KEY([ID_Habitacional])
+REFERENCES tblPHabitacionales ([ID_Habitacional])
+GO
+
 
