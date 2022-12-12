@@ -7,12 +7,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <div class="text-center">
 	<div class="container">
-		<form asp-controller="Habitacionales" asp-action="Index" method="post" enctype="multipart/form-data">
-				@foreach (var @item in @ViewBag.Habitacional)
-				{
-					<option value="@item.Nombre_Habitacional"> @item.Nombre_Habitacional </option>
-				}
-		
+		<form asp-action="Index" asp-controller="Habitacionales" method="post" enctype="multipart/form-data">
+			@foreach (var @item in @ViewBag.Habitacional)
+			{
+				<div class="card" style="width: 18rem;" value="id_Habitacional">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title"> @item.Nombre_Habitacional </h5>
+						<p class="card-text"> @item.Direccion_Habitacional </p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			}
 		</form>
 	</div>
 </div>

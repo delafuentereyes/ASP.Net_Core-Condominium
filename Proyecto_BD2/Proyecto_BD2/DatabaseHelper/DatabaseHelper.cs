@@ -9,7 +9,7 @@ namespace Proyecto_BD.DatabaseHelper
 {
     public class DatabaseHelper
     {
-        const string servidor = @"CHANNETT";
+        const string servidor = @"LAPTOP-JESUS";
         const string baseDatos = "ProyectoBD2";
         const string strConexion = "Data Source=" + servidor + ";Initial Catalog=" + baseDatos + ";Integrated Security=True";
 

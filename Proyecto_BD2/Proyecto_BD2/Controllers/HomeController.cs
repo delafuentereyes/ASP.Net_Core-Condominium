@@ -41,17 +41,17 @@ namespace Proyecto_BD2.Controllers
 
         }
 
-		public ActionResult UpdatePhoto(IFormFile foto)
+		public ActionResult UpdatePhoto(IFormFile photo)
 		{
 			if (!string.IsNullOrEmpty(HttpContext.Session.GetString("userSession")))
 			{
 				ViewBag.User = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("userSession"));
 
-				string foto_Usuario = Path.Combine("img\\", ViewBag.User.ID_Usuario + new FileInfo(foto.FileName).Extension);
+				string foto_Usuario = Path.Combine("img\\", ViewBag.User.ID_Usuario + new FileInfo(photo.FileName).Extension);
 
 				using (var stream = new FileStream(Directory.GetCurrentDirectory() + "\\wwwroot\\" + foto_Usuario, FileMode.Create))
 				{
-					foto.CopyTo(stream);
+					photo.CopyTo(stream);
 				}
 
 				DatabaseHelper.ExecStoreProcedure("spUpdateFotoUsuario", new List<SqlParameter>()

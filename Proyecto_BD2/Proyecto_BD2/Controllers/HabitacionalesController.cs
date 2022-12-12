@@ -4,6 +4,7 @@ using Proyecto_BD.DatabaseHelper;
 using System.Data.SqlClient;
 using System.Data;
 using Proyecto_BD2.Models;
+using Newtonsoft.Json;
 
 namespace Proyecto_BD2.Controllers
 {
@@ -11,13 +12,16 @@ namespace Proyecto_BD2.Controllers
 	{
 		// GET: CreatePHController
 
-		public ActionResult Index(int id_Habitacional)
+		public ActionResult Index(string id_Habitacional)
 		{
-
+			ViewBag.User = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("userSession"));
 
 			List<Habitacional> habitacionales = new List<Habitacional>();
 
-			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPH", new List<SqlParameter> { new SqlParameter("@id_Habitacional", id_Habitacional)});
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPH", new List<SqlParameter>() 
+			{
+				new SqlParameter ("@id_Habitacional", id_Habitacional) 
+			});
 
 			if (ds.Rows.Count > 0)
 			{
@@ -31,10 +35,11 @@ namespace Proyecto_BD2.Controllers
 				});
 			}
 
-
 			ViewBag.Habitacional = habitacionales;
+
 			return View();
 		}
+
 	}
 }
 
@@ -43,7 +48,10 @@ namespace Proyecto_BD2.Controllers
 		{
 			List<Habitacional> habitacionales = new List<Habitacional>();
 
-			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPH", new List<SqlParameter>());
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPH", new List<SqlParameter>()
+			{
+				
+			});
 
 			foreach (DataRow row in ds.Rows)
 			{
