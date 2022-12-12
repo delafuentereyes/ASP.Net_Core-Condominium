@@ -46,7 +46,7 @@ namespace Proyecto_BD2.Controllers
 
         private User? GetUser(string txtUsuario, string txtPass)
         {
-            DataTable ds = DatabaseHelper.ExecuteStoreProcedure("[spGetUsuarios]", new List<SqlParameter>()
+            DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetUsuarios", new List<SqlParameter>()
             {
                 new SqlParameter("@usuario", txtUsuario),
                 new SqlParameter("@pass", txtPass)

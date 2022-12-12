@@ -32,32 +32,26 @@
 										<h5 class="mb-1"> @ViewBag.User.Nombre_Usuario </h5>
 										<p class="mb-2 pb-1" style="color: #2b2a2a;"> @ViewBag.User.Cedula_Usuario </p>
 										<div class="d-flex justify-content-start rounded-3 p-2 mb-2"
-											 style="background-color: #efefef;">
+											 style="background-color: #efefef; height:auto">
 											<div>
-												<p class="small text-muted mb-1"> 
-													E-Mail 
-												</p>
-												<p class="mb-0"> 
-													@ViewBag.User.Email_Usuario 
-												</p>
+												<p class="small text-muted mb-1"> E-Mail </p>
+												<p class="mb-0"> @ViewBag.User.Email_Usuario </p>
 											</div>
-											<div class="px-3">
-												<p class="small text-muted mb-1"> 
-
-													Teléfono 
-												</p>
-												<p class="mb-0"> 
-
-													@ViewBag.User.Telefono_Usuario 
-												</p>
+											<div class="px-3" style="position:fixed; bottom: 410px;">
+												<p class="small text-muted mb-1"> Teléfono </p>
+												<p class="mb-0"> @ViewBag.User.Telefono_Usuario </p>
 											</div>
-											<div>
+											<div style="position:fixed; bottom: 360px;">
 												<p class="small text-muted mb-1"> Rol </p>
 												<p class="mb-0"> @ViewBag.User.Tipo_Rol </p>
 											</div>
 											<div>
 												<p class="small text-muted mb-1"> Dirección </p>
 												<p class="mb-0"> @ViewBag.User.Direccion_Habitacional </p>
+											</div>
+											<div style="position:fixed; bottom: 320px;">
+												<p class="small text-muted mb-1"> Placa </p>
+												<p class="mb-0"> @ViewBag.User.Placa_Vehiculo </p>
 											</div>
 										</div>
 										<form asp-action="UpdatePhoto" asp-controller="Home" method="post" enctype="multipart/form-data">
