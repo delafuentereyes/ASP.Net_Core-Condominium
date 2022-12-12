@@ -58,12 +58,50 @@ namespace Proyecto_BD2.Controllers
 			{
 				ViewBag.habitacional = GetPH(id_Habitacional);
 
-				ViewBag.viviendas = ViviendasController.CargarViviendas(idProyectoHabitacional);
+				ViewBag.viviendas = ViviendasController.GetViviendas(id_Habitacional);
 				return View();
 			}
 		}
 
-        public List<Habitacional> GetPH(string id_Habitacional)
+		public ActionResult UpdatePH(IFormFile inputPhoto, int id_Habitacional, string codigo, string nombre, string direccion, string telefonoOficina)
+		{
+
+			string? photoPath = null;
+
+			if (inputPhoto != null)
+			{
+				photoPath =
+					"/images/fotos_ph/"
+					+ Guid.NewGuid().ToString()
+					+ new FileInfo(inputPhoto.FileName).Extension;
+
+				using (
+					var stream = new FileStream(
+						Directory.GetCurrentDirectory() + "/wwwroot/" + photoPath,
+						FileMode.Create
+					)
+				)
+				{
+					inputPhoto.CopyTo(stream);
+				}
+			}
+
+			List<SqlParameter> param = new List<SqlParameter>()
+			{
+				new SqlParameter("@id_Habitacional", id_Habitacional),
+				new SqlParameter("@logo_Habitacional", photoPath),
+				new SqlParameter("@codigo_Habitacional", codigo),
+				new SqlParameter("@nombre_Habitacional", nombre),
+				new SqlParameter("@direccion_Habitacional", direccion),
+				new SqlParameter("@telefono_Oficina", telefonoOficina)
+			};
+
+			DatabaseHelper.ExecStoreProcedure("spUpdatePH", param);
+
+			return RedirectToAction("Index", "Habitacionales");
+		}
+
+		public List<Habitacional> GetPH(int id_Habitacional)
         {
 			List<Habitacional> habitacionales = new List<Habitacional>();
 
@@ -85,6 +123,60 @@ namespace Proyecto_BD2.Controllers
 			}
 
 			ViewBag.habitacional = habitacionales;
+		}
+
+		public ActionResult InsertPH(IFormFile inputPhoto, string codigo, string nombre, string direccion, string telefonoOficina, string selectNumViviendas)
+		{
+			string photoPath;
+
+			if (inputPhoto != null)
+			{
+				photoPath =
+					"/images/fotos_ph/"
+					+ Guid.NewGuid().ToString()
+					+ new FileInfo(inputPhoto.FileName).Extension;
+
+				using (
+					var stream = new FileStream(
+						Directory.GetCurrentDirectory() + "/wwwroot/" + photoPath,
+						FileMode.Create
+					)
+				)
+				{
+					inputPhoto.CopyTo(stream);
+				}
+			}
+			else
+			{
+				photoPath = "/images/fotos_ph/defaultCondominio.png";
+			}
+
+			List<SqlParameter> param = new List<SqlParameter>()
+			{
+				new SqlParameter("@logo_Habitacional", photoPath),
+				new SqlParameter("@codigo_Habitacional", codigo),
+				new SqlParameter("@nombre_Habitacional", nombre),
+				new SqlParameter("@direccion_Habitacional", direccion),
+				new SqlParameter("@telefono_Oficina", telefonoOficina),
+				new SqlParameter("@numero_Viviendas", selectNumViviendas),
+			};
+
+			DatabaseHelper.ExecStoreProcedure("spInsertPH", param);
+
+
+			return RedirectToAction("Index", "Habitacionales");
+		}
+
+		public ActionResult DeletePH(int id_Habitacional)
+		{
+			List<SqlParameter> param = new List<SqlParameter>()
+			{
+				new SqlParameter("@id_Habitacional", id_Habitacional)
+			};
+
+			DatabaseHelper.ExecStoreProcedure("spDeletePH", param);
+
+			return RedirectToAction("Index", "Habitacionales");
 		}
 	}
 }

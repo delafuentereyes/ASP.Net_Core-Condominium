@@ -10,89 +10,89 @@ namespace Proyecto_BD2.Controllers
 {
 	public class ViviendasController : Controller
 	{
-		public ActionResult Index(int idProyectoHabitacional)
+		public ActionResult Index(int id_Habitacional)
 		{
-			if (String.IsNullOrEmpty(HttpContext.Session.GetString("usuario")))
+			if (String.IsNullOrEmpty(HttpContext.Session.GetString("userAccessListSession")))
 			{
 				return RedirectToAction("Index", "Login");
 			}
 			else
 			{
-				ViewBag.usuario = JsonConvert.DeserializeObject(HttpContext.Session.GetString("usuario"));
-				ViewBag.viviendas = CargarViviendas(idProyectoHabitacional);
+				ViewBag.viviendas = GetViviendas(id_Habitacional);
+
 				return View();
 			}
 		}
 
-		public static List<Vivienda> CargarViviendas(int idProyectoHabitacional)
+		public static List<Vivienda> GetViviendas(int id_Habitacional)
 		{
 			List<SqlParameter> param = new List<SqlParameter>()
 			{
-				new SqlParameter("@idProyectoHabitacional", idProyectoHabitacional)
+				new SqlParameter("@id_Habitacional", id_Habitacional)
 			};
-			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("SP_ObtenerViviendas", param);
-			List<Vivienda> viviendasList = new List<Vivienda>();
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetViviendas", param);
+			List<Vivienda> viviendas = new List<Vivienda>();
 
 			foreach (DataRow row in ds.Rows)
 			{
-				viviendasList.Add(new Vivienda()
+				viviendas.Add(new Vivienda()
 				{
-					idVivienda = Convert.ToInt32(row["idVivienda"]),
-					numeroVivienda = row["numeroVivienda"].ToString(),
-					descripcion = row["descripcion"].ToString(),
-					numeroHabitaciones = Convert.ToInt32(row["numeroHabitaciones"] is DBNull ? 0 : row["numeroHabitaciones"]),
-					cochera = Convert.ToInt32(row["cochera"] is DBNull ? 0 : row["cochera"]),
-					idProyectoHabitacional = Convert.ToInt32(row["idProyectoHabitacional"]),
-					idPersona = Convert.ToInt32(row["idPersona"] is DBNull ? 0 : row["idPersona"])
+					ID_Vivienda = Convert.ToInt32(row["ID_Vivienda"]),
+					Numero_Vivienda = row["Numero_Vivienda"].ToString(),
+					Desc_Vivienda = row["Desc_Vivienda"].ToString(),
+					Numero_Habitaciones = Convert.ToInt32(row["Numero_Habitaciones"] is DBNull ? 0 : row["Numero_Habitaciones"]),
+					Cochera = Convert.ToInt32(row["Cochera"] is DBNull ? 0 : row["Cochera"]),
+					ID_Habitacional = Convert.ToInt32(row["ID_Habitacional"]),
+					ID_Usuario = Convert.ToInt32(row["ID_Usuario"] is DBNull ? 0 : row["ID_Usuario"])
 				});
 			}
 
-			return viviendasList;
+			return viviendas;
 		}
 
-		public ActionResult EliminarVivienda(int idVivienda, int idProyectoHabitacional)
+		public ActionResult DeleteVivienda(int id_Vivienda, int id_Habitacional)
 		{
-			DatabaseHelper.ExecStoreProcedure("SP_EliminarVivienda", new List<SqlParameter>()
+			DatabaseHelper.ExecStoreProcedure("spDeleteViviendas", new List<SqlParameter>()
 			{
-				new SqlParameter("@idVivienda", idVivienda)
+				new SqlParameter("@id_Vivienda", id_Vivienda)
 			});
 
-			return RedirectToAction("Editar", "Condominios", new { idProyectoHabitacional = idProyectoHabitacional });
+			return RedirectToAction("Editar", "Condominios", new { id_Habitacional = id_Habitacional });
 		}
 
-		public ActionResult Agregar()
+		public ActionResult Add()
 		{
-			if (String.IsNullOrEmpty(HttpContext.Session.GetString("usuario")))
+			if (String.IsNullOrEmpty(HttpContext.Session.GetString("userAccessListSession")))
 			{
 				return RedirectToAction("Index", "Login");
 			}
 			else
 			{
-				ViewBag.usuario = JsonConvert.DeserializeObject(HttpContext.Session.GetString("usuario"));
-				ViewBag.condominios = CargarCondominios();
+				ViewBag.Habitacional = LoadPHs();
+
 				return View();
 			}
 		}
 
-		public ActionResult AgregarVivienda(string numeroVivienda, string descripcion, int numeroHabitaciones, int cochera, int selectCondominio)
+		public ActionResult AddVivienda(string numeroVivienda, string desc_vivienda, int numeroHabitaciones, int cochera, int selectCondominio)
 		{
 
 			List<SqlParameter> param = new List<SqlParameter>()
 			{
-				new SqlParameter("@numeroVivienda", numeroVivienda),
-				new SqlParameter("@descripcion", descripcion),
-				new SqlParameter("@numeroHabitaciones", numeroHabitaciones),
+				new SqlParameter("@numero_Vivienda", numeroVivienda),
+				new SqlParameter("@desc_Vivienda", desc_vivienda),
+				new SqlParameter("@numero_Habitaciones", numeroHabitaciones),
 				new SqlParameter("@cochera", cochera),
-				new SqlParameter("@idProyectoHabitacional", selectCondominio),
+				new SqlParameter("@id_Habitacional", selectCondominio),
 			};
 
-			DatabaseHelper.ExecStoreProcedure("SP_AgregarVivienda", param);
+			DatabaseHelper.ExecStoreProcedure("spCreateViviendas", param);
 
 
 			return RedirectToAction("Index", "Condominios");
 		}
 
-		public ActionResult Editar(int idVivienda)
+		public ActionResult Edit(int id_Vivienda)
 		{
 			if (String.IsNullOrEmpty(HttpContext.Session.GetString("usuario")))
 			{
@@ -100,33 +100,32 @@ namespace Proyecto_BD2.Controllers
 			}
 			else
 			{
-				ViewBag.usuario = JsonConvert.DeserializeObject(HttpContext.Session.GetString("usuario"));
-				ViewBag.viviendas = CargarVivienda(idVivienda);
-				/* ViewBag.usuariosDD = SP_ObtenerUsuariosDDL(); */
+				ViewBag.viviendas = LoadVivienda(id_Vivienda);
+
 				return View();
 			}
 		}
 
-		private List<Vivienda> CargarVivienda(int idVivienda)
+		private List<Vivienda> LoadVivienda(int id_Vivienda)
 		{
 			List<SqlParameter> param = new List<SqlParameter>()
 			{
-				new SqlParameter("@idVivienda", idVivienda)
+				new SqlParameter("@id_Vivienda", id_Vivienda)
 			};
-			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("SP_ObtenerVivienda", param);
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetVivienda", param);
 			List<Vivienda> viviendasList = new List<Vivienda>();
 
 			foreach (DataRow row in ds.Rows)
 			{
 				viviendasList.Add(new Vivienda()
 				{
-					idVivienda = Convert.ToInt32(row["idVivienda"]),
-					numeroVivienda = row["numeroVivienda"].ToString(),
-					descripcion = row["descripcion"].ToString(),
-					numeroHabitaciones = Convert.ToInt32(row["numeroHabitaciones"]),
-					cochera = Convert.ToInt32(row["cochera"]),
-					idProyectoHabitacional = Convert.ToInt32(row["idProyectoHabitacional"]),
-					idPersona = Convert.ToInt32(row["idPersona"] is DBNull ? 0 : row["idPersona"])
+					ID_Vivienda = Convert.ToInt32(row["ID_Vivienda"]),
+					Numero_Vivienda = row["Numero_Vivienda"].ToString(),
+					Desc_Vivienda = row["Desc_Vivienda"].ToString(),
+					Numero_Habitaciones = Convert.ToInt32(row["Numero_Habitaciones"]),
+					Cochera = Convert.ToInt32(row["Cochera"]),
+					ID_Habitacional = Convert.ToInt32(row["ID_Habitacional"]),
+					ID_Usuario = Convert.ToInt32(row["ID_Usuario"] is DBNull ? 0 : row["ID_Usuario"])
 				});
 			}
 
@@ -138,58 +137,54 @@ namespace Proyecto_BD2.Controllers
 
 			List<SqlParameter> param = new List<SqlParameter>()
 			{
-				new SqlParameter("@idVivienda", idVivienda),
-				new SqlParameter("@numeroVivienda", numeroVivienda),
-				new SqlParameter("@descripcion", descripcion),
-				new SqlParameter("@numeroHabitaciones", numeroHabitaciones),
+				new SqlParameter("@id_Vivienda", idVivienda),
+				new SqlParameter("@numero_Vivienda", numeroVivienda),
+				new SqlParameter("@desc_Vivienda", descripcion),
+				new SqlParameter("@numero_Habitaciones", numeroHabitaciones),
 				new SqlParameter("@cochera", cochera),
-				new SqlParameter("@idPersona", SelectUser),
+				new SqlParameter("@id_Usuario", SelectUser),
 			};
 
-			DatabaseHelper.ExecStoreProcedure("SP_UpdateVivienda", param);
+			DatabaseHelper.ExecStoreProcedure("spUpdateVivienda", param);
 
 			return RedirectToAction("Index", "Viviendas");
 		}
 
-		private List<Usuario> SP_ObtenerUsuariosDDL()
+		private List<User> spObtenerUsuarios()
 		{
-			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("SP_ObtenerUsuariosDDL", null);
-			List<Usuario> usuariosList = new List<Usuario>();
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetUsuarios", null);
+			List<User> usuarios = new List<User>();
 
 			foreach (DataRow row in ds.Rows)
 			{
-				usuariosList.Add(new Usuario()
+				usuarios.Add(new User()
 				{
-					idPersona = Convert.ToInt32(row["idPersona"]),
-					nombre = row["nombreCompleto"].ToString(),
+					ID_Usuario = row["ID_Usuario"].ToString(),
+					Nombre_Usuario = row["Nombre_Usuario"].ToString(),
 
 				});
 			}
-			return usuariosList;
+			return usuarios;
 		}
 
-		private List<Condominio> CargarCondominios()
+		private List<Habitacional> LoadPHs()
 		{
-			DataTable ds = DatabaseHelper.ExecuteSelect("SELECT idProyectoHabitacional, nombre FROM proyectosHabitacionales", null);
-			List<Condominio> listadoCondominios = new List<Condominio>();
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("SELECT ID_Habitacional, Nombre_Habitacional FROM tblPHabitacionales", null);
+			List<Habitacional> habitacionales = new List<Habitacional>();
 
 			foreach (DataRow row in ds.Rows)
 			{
-				listadoCondominios.Add(
-					new Condominio()
+				habitacionales.Add(
+					new Habitacional()
 					{
-						idProyectoHabitacional = Convert.ToInt32(row["idProyectoHabitacional"]),
-						nombre = row["nombre"].ToString(),
+						ID_Habitacional = row["ID_Habitacional"].ToString(),
+						Nombre_Habitacional = row["nombre"].ToString(),
 					}
 				);
 			}
 
-			return listadoCondominios;
+			return habitacionales;
 		}
 	}
-
-
-
-
 }
-}
+

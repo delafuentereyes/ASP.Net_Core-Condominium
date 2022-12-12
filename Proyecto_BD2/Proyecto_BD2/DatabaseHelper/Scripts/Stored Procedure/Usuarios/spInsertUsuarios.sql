@@ -16,7 +16,7 @@ BEGIN
 		INSERT INTO tblUsuarios (Nombre_Usuario, Cedula_Usuario, Email_Usuario, 
 								Telefono_Usuario, Foto_Usuario, Usuario, Pass, ID_Rol,ID_Habitacional)
 		VALUES (@nombre_Usuario, @cedula_Usuario, @email_Usuario, 
-				@telefono_Usuario, @foto_Usuario, @usuario, @pass, @id_Rol,@id_Habitacional)
+				@telefono_Usuario, @foto_Usuario, @usuario, @pass, @id_Rol, @id_Habitacional)
 END
 GO
 
