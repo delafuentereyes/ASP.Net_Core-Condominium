@@ -8,13 +8,11 @@
 <div class="text-center">
 	<div class="container">
 		<form asp-controller="Habitacionales" asp-action="Index" method="post" enctype="multipart/form-data">
-			<select name="id_Habitacional" class="form-select" aria-label="Default select example" onchange="this.form.submit()">
-                <option selected> Seleccione el proyecto habitacional </option>
 				@foreach (var @item in @ViewBag.Habitacional)
 				{
 					<option value="@item.Nombre_Habitacional"> @item.Nombre_Habitacional </option>
 				}
-			</select>
+		
 		</form>
 	</div>
 </div>
