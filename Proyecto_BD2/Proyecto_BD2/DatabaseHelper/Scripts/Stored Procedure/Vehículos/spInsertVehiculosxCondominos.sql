@@ -11,7 +11,7 @@ BEGIN
 END
 GO
 
-EXEC spInsertVehiculosxCondominos 1, 2
+EXEC spInsertVehiculosxCondominos 2, 2
 GO
 
 SELECT * FROM tblVehiculosxCondominos

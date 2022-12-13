@@ -18,15 +18,17 @@ CREATE TABLE tblPHabitacionales(
 	Nombre_Habitacional VARCHAR (100) NOT NULL,
 	Direccion_Habitacional VARCHAR (300) NOT NULL,
 	Telefono_Oficina VARCHAR (20) NOT NULL,
-	Numero_Habitaciones INT NOT NULL,
+
 	ID_Vivienda INT NOT NULL
 
 	CONSTRAINT PKtblPHabitacionales PRIMARY KEY (ID_Habitacional),
-	CONSTRAINT UNQtblPHabitacionales UNIQUE (Codigo_Habitacional),
-	CONSTRAINT FKtblPHabitacionales FOREIGN KEY (ID_Vivienda)
-	REFERENCES tblViviendas (ID_Vivienda)
+	CONSTRAINT UNQtblPHabitacionales UNIQUE (Codigo_Habitacional)
 )
 GO
+
+ALTER TABLE tblPHabitacionales  WITH CHECK ADD FOREIGN KEY(ID_Vivienda)
+REFERENCES tblViviendas (ID_Vivienda)
+GO  
 
 CREATE TABLE tblUsuarios(
 	ID_Usuario INT IDENTITY(1,1) NOT NULL,
@@ -141,6 +143,8 @@ GO
 ALTER TABLE tblViviendas  WITH CHECK ADD FOREIGN KEY([ID_Habitacional])
 REFERENCES tblPHabitacionales ([ID_Habitacional])
 GO  
+
+---------------------------------------------------------------------------------------------------------
 
 CREATE TABLE UsuariosxPH(
     ID_Usuario int NOT NULL,

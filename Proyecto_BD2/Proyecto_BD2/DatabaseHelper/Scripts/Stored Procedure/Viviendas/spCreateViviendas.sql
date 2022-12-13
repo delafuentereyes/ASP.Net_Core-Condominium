@@ -28,4 +28,4 @@ INSERT INTO tblViviendas
 END
 GO
 
-EXEC spCreateViviendas '1011', 'descripcion', 3, 1, 1, 1
+EXEC spCreateViviendas '1011', 'descripcion', 3, 1, 1, 2

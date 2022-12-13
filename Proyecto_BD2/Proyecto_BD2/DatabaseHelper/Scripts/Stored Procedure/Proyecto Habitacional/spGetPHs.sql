@@ -1,0 +1,10 @@
+USE ProyectoBD2;
+GO
+
+CREATE OR ALTER PROCEDURE spGetPHs
+AS 
+BEGIN
+	SELECT *
+	FROM tblPHabitacionales
+END
+GO

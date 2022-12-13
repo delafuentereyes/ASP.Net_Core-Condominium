@@ -123,6 +123,8 @@ namespace Proyecto_BD2.Controllers
 			}
 
 			ViewBag.habitacional = habitacionales;
+
+			return habitacionales;
 		}
 
 		public ActionResult InsertPH(IFormFile inputPhoto, string codigo, string nombre, string direccion, string telefonoOficina, string selectNumViviendas)
