@@ -150,7 +150,7 @@ namespace Proyecto_BD2.Controllers
 			}
 			else
 			{
-				photoPath = "/images/fotos_ph/defaultCondominio.png";
+				photoPath = "/images/fotos_ph/default.jpg";
 			}
 
 			List<SqlParameter> param = new List<SqlParameter>()

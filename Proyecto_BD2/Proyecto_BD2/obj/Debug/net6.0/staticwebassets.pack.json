@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\img\\1.jpg"
     },
     {
+      "Id": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\img\\2.jpg",
+      "PackagePath": "staticwebassets\\img\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\img\\fotos_ph\\default.jpg",
+      "PackagePath": "staticwebassets\\img\\fotos_ph\\default.jpg"
+    },
+    {
       "Id": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -60,7 +60,7 @@ namespace Proyecto_BD2.Controllers
 			return RedirectToAction("Editar", "Condominios", new { id_Habitacional = id_Habitacional });
 		}
 
-		public ActionResult Add()
+		public ActionResult Create()
 		{
 			if (String.IsNullOrEmpty(HttpContext.Session.GetString("userAccessListSession")))
 			{

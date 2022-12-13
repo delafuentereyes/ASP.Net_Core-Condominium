@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "58Ta6Wb4fjrtj/WxYMAJwCI7CXS1iiL+xlnsc+YHC3c=",
+  "Hash": "JVq4WxtsaVGPUJ6bmrb1cjZonGfoVvd0G1wxcM4EXr4=",
   "Source": "Proyecto_BD2",
   "BasePath": "_content/Proyecto_BD2",
   "Mode": "Default",
@@ -117,6 +117,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\img\\2.jpg",
+      "SourceId": "Proyecto_BD2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\",
+      "BasePath": "_content/Proyecto_BD2",
+      "RelativePath": "img/2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\img\\fotos_ph\\default.jpg",
+      "SourceId": "Proyecto_BD2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\",
+      "BasePath": "_content/Proyecto_BD2",
+      "RelativePath": "img/fotos_ph/default.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\fotos_ph\\default.jpg"
     },
     {
       "Identity": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\js\\site.js",
