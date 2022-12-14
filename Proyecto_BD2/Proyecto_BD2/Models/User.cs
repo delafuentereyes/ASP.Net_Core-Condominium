@@ -8,6 +8,7 @@
         public string? Email_Usuario { get; set; }
         public string? Telefono_Usuario { get; set; }
         public string? Foto_Usuario { get; set; }
+        public string? ID_Rol { get; set; }
         public string? Tipo_Rol { get; set; }
         public string? Logo_Habitacional { get; set; }
         public string? Codigo_Habitacional { get; set; }

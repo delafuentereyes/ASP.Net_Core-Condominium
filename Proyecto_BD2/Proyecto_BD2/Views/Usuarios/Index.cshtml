@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Usuarios";
+}
+
+@await Html.PartialAsync("userAccess")
+
+<div class="row">
+    @* Busqueda *@
+    <div class="col-lg-10 col-md-12 col-sm-12" style="margin: 0 auto;">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                <h4>Usuarios</h4>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+                <div class="row d-flex justify-content-end">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <form asp-controller="Usuarios" asp-action="Index" enctype="multipart/form-data">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Buscar..." name="busqueda"
+                                       aria-describedby="busqueda">
+                                <button class="btn btn-success btn-sm" type="submit" id="busqueda"> Buscar </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+    @* Tabla *@
+    <div class="col-lg-10 col-md-12 col-sm-12 mt-3" style="margin: 0 auto;">
+        <div class="table-responsive">
+            <table class="table caption-top table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col"> ID </th>
+                        <th scope="col"> Nombre Completo </th>
+                        <th scope="col"> Cédula </th>
+                        <th scope="col"> Correo Electrónico </th>
+                        <th scope="col"> Nombre de usuario </th>
+                        <th scope="col"> Condominio </th>
+                        <th scope="col"> Rol </th>
+                        <th scope="col"> Acciones </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var User in ViewBag.Usuarios)
+                    {
+                        <tr>
+                            @{
+                                <th> @User.ID_Usuario</th>
+                                <td> @User.Nombre_Usuario </td>
+                                <td> @User.Cedula_Usuario </td>
+                                <td> @User.Email_Usuario </td>
+                                <td> @User.Usuario </td>
+
+                                if (String.IsNullOrEmpty(User.Nombre_Habitacional))
+                                {
+                                    <td>-</td>
+                                }
+                                else
+                                {
+                                    <td>@User.Nombre_Habitacional</td>
+                                }
+
+                                <td>@User.Tipo_Rol</td>
+                            }
+                            <td class="actions">
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="bi bi-eye-fill"></i>
+                                </button>
+
+                                <button class="btn btn-warning btn-sm"
+                                    onclick="window.location='@Url.Action("Editar", "Usuarios", new {idPersona=@User.idPersona})'">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                @{
+                                    if (@User.Tipo_Rol != "Admin")
+                                    {
+                                        <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal" onClick="getValue(@User.ID_Usuario)">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </button>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Usuario</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Seguro que desea eliminar el usuario?
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="idDelete" value="">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="deleteElement()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function getValue(idElemento) {
+        $("#idDelete").val(idElemento);
+    }
+
+    function deleteElement() {
+        var value = $("#idDelete").val();
+        let url = '/Usuarios/EliminarUsuario?idUsuario=' + value;
+        location.href = url;
+    }
+</script>

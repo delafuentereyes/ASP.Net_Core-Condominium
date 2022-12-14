@@ -9171,19 +9171,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Javi\\.nuget\\packages\\": {}
+    "C:\\Users\\jesus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Javi\\Source\\Repos\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj",
+      "projectUniqueName": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj",
       "projectName": "Proyecto_BD2",
-      "projectPath": "C:\\Users\\Javi\\Source\\Repos\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj",
-      "packagesPath": "C:\\Users\\Javi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Javi\\Source\\Repos\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\obj\\",
+      "projectPath": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2.csproj",
+      "packagesPath": "C:\\Users\\jesus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jesus\\OneDrive\\UMCA\\2022\\Cuatrimestre III\\Bases de Datos II\\Proyecto\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Javi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9241,7 +9241,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

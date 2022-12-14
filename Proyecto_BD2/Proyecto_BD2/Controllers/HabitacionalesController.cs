@@ -10,50 +10,50 @@ namespace Proyecto_BD2.Controllers
 {
 	public class HabitacionalesController : Controller
 	{
-        // GET: CreatePHController
+		// GET: CreatePHController
 
-        public ActionResult Index()
-        {
-            if (String.IsNullOrEmpty(HttpContext.Session.GetString("userAccessListSession")))
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                
-                ViewBag.Habitacional = GetPHs();
+		public ActionResult Index()
+		{
+			if (String.IsNullOrEmpty(HttpContext.Session.GetString("userAccessListSession")))
+			{
+				return RedirectToAction("Index", "Login");
+			}
+			else
+			{
 
-                return View();
-            }
-        }
+				ViewBag.Habitacional = GetPHs();
 
-        public ActionResult Create()
-        {
+				return View();
+			}
+		}
 
-                return View();
-        }
+		public ActionResult Create()
+		{
 
-        public List<Habitacional> GetPHs()
-        {
+			return View();
+		}
 
-            DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPHs", null);
-            List<Habitacional> habitacionales = new List<Habitacional>();
+		public List<Habitacional> GetPHs()
+		{
 
-            foreach (DataRow row in ds.Rows)
-            {
-                habitacionales.Add(new Habitacional()
-                {
-                    ID_Habitacional = Convert.ToInt32(ds.Rows[0]["ID_Habitacional"]),
-                    Logo_Habitacional = ds.Rows[0]["Logo_Habitacional"].ToString(),
-                    Codigo_Habitacional = ds.Rows[0]["Codigo_Habitacional"].ToString(),
-                    Nombre_Habitacional = ds.Rows[0]["Nombre_Habitacional"].ToString(),
-                    Direccion_Habitacional = ds.Rows[0]["Direccion_Habitacional"].ToString(),
-                    Telefono_Oficina = ds.Rows[0]["Telefono_Oficina"].ToString(),
-                });
-            }
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPHs", null);
+			List<Habitacional> habitacionales = new List<Habitacional>();
 
-            return habitacionales;
-        }
+			foreach (DataRow row in ds.Rows)
+			{
+				habitacionales.Add(new Habitacional()
+				{
+					ID_Habitacional = Convert.ToInt32(ds.Rows[0]["ID_Habitacional"]),
+					Logo_Habitacional = ds.Rows[0]["Logo_Habitacional"].ToString(),
+					Codigo_Habitacional = ds.Rows[0]["Codigo_Habitacional"].ToString(),
+					Nombre_Habitacional = ds.Rows[0]["Nombre_Habitacional"].ToString(),
+					Direccion_Habitacional = ds.Rows[0]["Direccion_Habitacional"].ToString(),
+					Telefono_Oficina = ds.Rows[0]["Telefono_Oficina"].ToString(),
+				});
+			}
+
+			return habitacionales;
+		}
 
 
 		public ActionResult UpdatePH(IFormFile inputPhoto, int id_Habitacional, string codigo, string nombre, string direccion, string telefonoOficina)
@@ -95,38 +95,38 @@ namespace Proyecto_BD2.Controllers
 		}
 
 
-        public ActionResult Editar(int id_Habitacional)
-        {
-          
-                ViewBag.habitacional = GetPH(id_Habitacional);
-                return View();
-           
-        }
+		public ActionResult Editar(int id_Habitacional)
+		{
 
-        private Habitacional GetPH (int id_Habitacional)
-        {
-            List<SqlParameter> param = new List<SqlParameter>()
-            {
-                new SqlParameter("@id_Habitacional", id_Habitacional)
-            };
+			ViewBag.habitacional = GetPH(id_Habitacional);
+			return View();
 
-            DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPH", param);
+		}
 
-            Habitacional habitacional= new Habitacional()
-            {
-                ID_Habitacional = Convert.ToInt32(ds.Rows[0]["id_Habitacional"]),
-                Logo_Habitacional = ds.Rows[0]["Logo_Habitacional"].ToString(),
-                Codigo_Habitacional = ds.Rows[0]["Codigo_Habitacional"].ToString(),
-                Nombre_Habitacional = ds.Rows[0]["Nombre_Habitacional"].ToString(),
-                Direccion_Habitacional = ds.Rows[0]["Direccion_Habitacional"].ToString(),
-                Telefono_Oficina = ds.Rows[0]["Telefono_Oficina"].ToString(),
-            };
+		private Habitacional GetPH(int id_Habitacional)
+		{
+			List<SqlParameter> param = new List<SqlParameter>()
+			{
+				new SqlParameter("@id_Habitacional", id_Habitacional)
+			};
 
-            return habitacional;
-        }
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPH", param);
+
+			Habitacional habitacional = new Habitacional()
+			{
+				ID_Habitacional = Convert.ToInt32(ds.Rows[0]["id_Habitacional"]),
+				Logo_Habitacional = ds.Rows[0]["Logo_Habitacional"].ToString(),
+				Codigo_Habitacional = ds.Rows[0]["Codigo_Habitacional"].ToString(),
+				Nombre_Habitacional = ds.Rows[0]["Nombre_Habitacional"].ToString(),
+				Direccion_Habitacional = ds.Rows[0]["Direccion_Habitacional"].ToString(),
+				Telefono_Oficina = ds.Rows[0]["Telefono_Oficina"].ToString(),
+			};
+
+			return habitacional;
+		}
 
 
-        public ActionResult CreatePh(IFormFile inputPhoto, string codigo, string nombre, string direccion, string telefono, string selectNumViviendas)
+		public ActionResult CreatePh(IFormFile inputPhoto, string codigo, string nombre, string direccion, string telefono, string selectNumViviendas)
 		{
 			string photoPath;
 
