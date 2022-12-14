@@ -2,9 +2,15 @@
 	ViewData["Title"] = "Proyectos Habitacionales";
 }
 
-@Html.Partial("userAccess")
+@await Html.PartialAsync("userAccess")
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<div class="container d-flex justify-content-center align-items-center">
+    <a href="@Url.Action("Create", "Habitacionales")">
+        <img src="Iconos\Agregar.png" style="width:50px; height:50px; margin:5px" />
+    </a>
+</div>
+
 <div class="text-center">
 	<div class="container">
 		@foreach (var @item in @ViewBag.Habitacional)

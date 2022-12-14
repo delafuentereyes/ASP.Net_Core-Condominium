@@ -21,13 +21,13 @@ namespace Proyecto_BD2.Controllers
             else
             {
                 
-                ViewBag.Habitacional = GetPHs(busqueda);
+                ViewBag.Habitacional = GetPHs();
 
                 return View();
             }
         }
 
-        public List<Habitacional> GetPHs(string busqueda)
+        public List<Habitacional> GetPHs()
         {
 
             DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPHs", null);
@@ -127,7 +127,7 @@ namespace Proyecto_BD2.Controllers
 			return habitacionales;
 		}
 
-		public ActionResult InsertPH(IFormFile inputPhoto, string codigo, string nombre, string direccion, string telefonoOficina, string selectNumViviendas)
+		public ActionResult CreatePh(IFormFile inputPhoto, string codigo, string nombre, string direccion, string telefono, string selectNumViviendas)
 		{
 			string photoPath;
 
@@ -150,17 +150,17 @@ namespace Proyecto_BD2.Controllers
 			}
 			else
 			{
-				photoPath = "/images/fotos_ph/default.jpg";
+				photoPath = "/img/fotos_ph/default.jpg";
 			}
 
 			List<SqlParameter> param = new List<SqlParameter>()
 			{
-				new SqlParameter("@logo_Habitacional", photoPath),
-				new SqlParameter("@codigo_Habitacional", codigo),
-				new SqlParameter("@nombre_Habitacional", nombre),
-				new SqlParameter("@direccion_Habitacional", direccion),
-				new SqlParameter("@telefono_Oficina", telefonoOficina),
-				new SqlParameter("@numero_Viviendas", selectNumViviendas),
+				new SqlParameter("@logo", photoPath),
+				new SqlParameter("@codigo", codigo),
+				new SqlParameter("@nombre", nombre),
+				new SqlParameter("@direccion", direccion),
+				new SqlParameter("@telefono", telefono),
+				new SqlParameter("@numeroViviendas", selectNumViviendas),
 			};
 
 			DatabaseHelper.ExecStoreProcedure("spInsertPH", param);
