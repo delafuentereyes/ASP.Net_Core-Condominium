@@ -12,7 +12,7 @@ namespace Proyecto_BD2.Controllers
 	{
         // GET: CreatePHController
 
-        public ActionResult Index(string busqueda)
+        public ActionResult Index()
         {
             if (String.IsNullOrEmpty(HttpContext.Session.GetString("userAccessListSession")))
             {
@@ -27,6 +27,12 @@ namespace Proyecto_BD2.Controllers
             }
         }
 
+        public ActionResult Create()
+        {
+
+                return View();
+        }
+
         public List<Habitacional> GetPHs()
         {
 
@@ -37,6 +43,7 @@ namespace Proyecto_BD2.Controllers
             {
                 habitacionales.Add(new Habitacional()
                 {
+                    ID_Habitacional = Convert.ToInt32(ds.Rows[0]["ID_Habitacional"]),
                     Logo_Habitacional = ds.Rows[0]["Logo_Habitacional"].ToString(),
                     Codigo_Habitacional = ds.Rows[0]["Codigo_Habitacional"].ToString(),
                     Nombre_Habitacional = ds.Rows[0]["Nombre_Habitacional"].ToString(),
@@ -48,20 +55,6 @@ namespace Proyecto_BD2.Controllers
             return habitacionales;
         }
 
-		public ActionResult EditPH(int id_Habitacional)
-		{
-			if (String.IsNullOrEmpty(HttpContext.Session.GetString("userAccessListSession")))
-			{
-				return RedirectToAction("Index", "Login");
-			}
-			else
-			{
-				ViewBag.habitacional = GetPH(id_Habitacional);
-
-				ViewBag.viviendas = ViviendasController.GetViviendas(id_Habitacional);
-				return View();
-			}
-		}
 
 		public ActionResult UpdatePH(IFormFile inputPhoto, int id_Habitacional, string codigo, string nombre, string direccion, string telefonoOficina)
 		{
@@ -101,33 +94,39 @@ namespace Proyecto_BD2.Controllers
 			return RedirectToAction("Index", "Habitacionales");
 		}
 
-		public List<Habitacional> GetPH(int id_Habitacional)
+
+        public ActionResult Editar(int id_Habitacional)
         {
-			List<Habitacional> habitacionales = new List<Habitacional>();
+          
+                ViewBag.habitacional = GetPH(id_Habitacional);
+                return View();
+           
+        }
 
-			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPH", new List<SqlParameter>()
-			{
-				new SqlParameter ("@id_Habitacional", id_Habitacional)
-			});
+        private Habitacional GetPH (int id_Habitacional)
+        {
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+                new SqlParameter("@id_Habitacional", id_Habitacional)
+            };
 
-			if (ds.Rows.Count > 0)
-			{
-				habitacionales.Add(new Habitacional()
-				{
-					Logo_Habitacional = ds.Rows[0]["Logo_Habitacional"].ToString(),
-					Codigo_Habitacional = ds.Rows[0]["Codigo_Habitacional"].ToString(),
-					Nombre_Habitacional = ds.Rows[0]["Nombre_Habitacional"].ToString(),
-					Direccion_Habitacional = ds.Rows[0]["Direccion_Habitacional"].ToString(),
-					Telefono_Oficina = ds.Rows[0]["Telefono_Oficina"].ToString(),
-				});
-			}
+            DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetPH", param);
 
-			ViewBag.habitacional = habitacionales;
+            Habitacional habitacional= new Habitacional()
+            {
+                ID_Habitacional = Convert.ToInt32(ds.Rows[0]["id_Habitacional"]),
+                Logo_Habitacional = ds.Rows[0]["Logo_Habitacional"].ToString(),
+                Codigo_Habitacional = ds.Rows[0]["Codigo_Habitacional"].ToString(),
+                Nombre_Habitacional = ds.Rows[0]["Nombre_Habitacional"].ToString(),
+                Direccion_Habitacional = ds.Rows[0]["Direccion_Habitacional"].ToString(),
+                Telefono_Oficina = ds.Rows[0]["Telefono_Oficina"].ToString(),
+            };
 
-			return habitacionales;
-		}
+            return habitacional;
+        }
 
-		public ActionResult CreatePh(IFormFile inputPhoto, string codigo, string nombre, string direccion, string telefono, string selectNumViviendas)
+
+        public ActionResult CreatePh(IFormFile inputPhoto, string codigo, string nombre, string direccion, string telefono, string selectNumViviendas)
 		{
 			string photoPath;
 

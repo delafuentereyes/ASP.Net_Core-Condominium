@@ -20,10 +20,34 @@
 				<div class="card-body">
 					<h5 class="card-title"> @item.Nombre_Habitacional </h5>
 					<p class="card-text"> @item.Direccion_Habitacional </p>
-					<a href="#" class="btn btn-primary"> Editar </a>
-					<a href="#" class="btn btn-danger"> Borrar </a>
+                    <button class="btn btn-warning btn-sm"
+                        onclick="window.location='@Url.Action("Editar", "Habitacionales", new {ID_Habitacional=@item.ID_Habitacional})'">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+
+                    <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                        onClick="getValue(@item.ID_Habitacional)">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
 				</div>
 			</div>
+			 
 		}
 	</div>
 </div>
+
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        function getValue(idElemento) {
+            $("#idDelete").val(idElemento);
+        }
+
+        function deleteElement() {
+            var value = $("#idDelete").val();
+            let url = '/Habitacionales/DeletePH?id_Habitacional=' + value;
+            location.href = url;
+        }
+    </script>
+}

@@ -2,7 +2,7 @@
 {
     public class Habitacional
     {
-        public string? ID_Habitacional { get; set; }
+        public int ID_Habitacional { get; set; }
         public string? Logo_Habitacional { get; set; }
         public string? Codigo_Habitacional { get; set; }
         public string? Nombre_Habitacional { get; set; }

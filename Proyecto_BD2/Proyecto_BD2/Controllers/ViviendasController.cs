@@ -177,8 +177,9 @@ namespace Proyecto_BD2.Controllers
 				habitacionales.Add(
 					new Habitacional()
 					{
-						ID_Habitacional = row["ID_Habitacional"].ToString(),
-						Nombre_Habitacional = row["nombre"].ToString(),
+						ID_Habitacional = Convert.ToInt32(row["ID_Habitacional"]),
+
+                        Nombre_Habitacional = row["nombre"].ToString(),
 					}
 				);
 			}

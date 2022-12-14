@@ -2,5 +2,95 @@
 	ViewData["Title"] = "Editar Proyectos Habitacionales";
 }
 
-@await Html.PartialAsync("userAccess")
 
+
+<div class="container">
+    <div class="row">
+        <form class="form" asp-controller="Habitacionales" asp-action="UpdatePH" enctype="multipart/form-data">
+            <div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <div class="container-profile">
+                            <div class="avatar-upload">
+                                <div class="avatar-edit">
+                                    <input type='file' id="inputPhoto" name="inputPhoto" accept=".png, .jpg, .jpeg" />
+                                    <label for="inputPhoto"></label>
+                                </div>
+                                <div class="avatar-preview">
+                                    <div id="imagePreview" style="background-image: url(@ViewBag.habitacional.Logo_Habitacional);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-12">
+                        <div class="text-center">
+                            <h4>Editar condominio</h4>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <label for="nombre" class="form-label">Nombre Condominio:</label>
+                                <input type="text" value="@ViewBag.habitacional.Nombre_Habitacional"
+                                       class="form-control form-control-sm mb-2" name="nombre" required />
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <label for="direccion" class="form-label">Dirección:</label>
+                                <input type="text" value="@ViewBag.habitacional.Direccion_Habitacional"
+                                       class="form-control form-control-sm mb-2" name="direccion" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-md-4 col-sm-12">
+                                <label for="telefonoOficina" class="form-label">Telefono:</label>
+                                <input type="text" value="@ViewBag.habitacional.Telefono_Oficina"
+                                       class="form-control form-control-sm mb-2" name="telefonoOficina" required />
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group float-end">
+                            <div class="col-12">
+                                <button class="btn btn-white" type="reset">Limpiar</button>
+                                <button class="btn btn-success" name="id_Habitacional"
+                                        value="@ViewBag.habitacional.ID_Habitacional" type="submit">
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Vivienda</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Seguro que desea eliminar la vivienda?
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="idDelete" value="">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="deleteElement()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function getValue(idElemento) {
+        $("#idDelete").val(idElemento);
+    }
+
+    function deleteElement() {
+        var value = $("#idDelete").val();
+        let url = '/Viviendas/EliminarVivienda?idVivienda=' + value + '&id_Habitacional=' + @ViewBag.habitacional.ID_Habitacional;
+        location.href = url;
+    }
+</script>
