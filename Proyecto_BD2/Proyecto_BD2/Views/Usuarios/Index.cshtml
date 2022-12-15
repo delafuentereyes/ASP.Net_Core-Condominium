@@ -38,48 +38,35 @@
                         <th scope="col"> Nombre Completo </th>
                         <th scope="col"> Cédula </th>
                         <th scope="col"> Correo Electrónico </th>
-                        <th scope="col"> Nombre de usuario </th>
-                        <th scope="col"> Condominio </th>
                         <th scope="col"> Rol </th>
                         <th scope="col"> Acciones </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var User in ViewBag.Usuarios)
+                    @foreach (var usuarios in ViewBag.Usuarios)
                     {
                         <tr>
                             @{
-                                <th> @User.ID_Usuario</th>
-                                <td> @User.Nombre_Usuario </td>
-                                <td> @User.Cedula_Usuario </td>
-                                <td> @User.Email_Usuario </td>
-                                <td> @User.Usuario </td>
+                                <th> @usuarios.ID_Usuario</th>
+                                <td> @usuarios.Nombre_Usuario </td>
+                                <td> @usuarios.Cedula_Usuario </td>
+                                <td> @usuarios.Email_Usuario </td>
+                               
 
-                                if (String.IsNullOrEmpty(User.Nombre_Habitacional))
-                                {
-                                    <td>-</td>
-                                }
-                                else
-                                {
-                                    <td>@User.Nombre_Habitacional</td>
-                                }
 
-                                <td>@User.Tipo_Rol</td>
+                                <td>@usuarios.Tipo_Rol</td>
                             }
                             <td class="actions">
-                                <button class="btn btn-primary btn-sm">
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-
+                            
                                 <button class="btn btn-warning btn-sm"
-                                    onclick="window.location='@Url.Action("Editar", "Usuarios", new {idPersona=@User.idPersona})'">
+                                    onclick="window.location='@Url.Action("Editar", "Usuarios", new {ID_Usuario=@usuarios.ID_Usuario})'">
                                     <i class="bi bi-pencil"></i>
                                 </button>
                                 @{
-                                    if (@User.Tipo_Rol != "Admin")
+                                    if (@usuarios.Tipo_Rol != "Admin")
                                     {
                                         <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#deleteModal" onClick="getValue(@User.ID_Usuario)">
+                                        data-bs-target="#deleteModal" onClick="getValue(@usuarios.ID_Usuario)">
                                             <i class="bi bi-trash-fill"></i>
                                         </button>
                                     }
@@ -92,6 +79,10 @@
         </div>
     </div>
 </div>
+<button class="btn btn-primary btn-sm"
+        onclick="window.location= '@Url.Action("Agregar", "Usuarios")'">
+    Create User
+</button>
 
 
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

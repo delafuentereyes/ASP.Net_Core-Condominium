@@ -160,7 +160,7 @@ namespace Proyecto_BD2.Controllers
 				usuarios.Add(new User()
 				{
 					ID_Usuario = row["ID_Usuario"].ToString(),
-					Nombre_Usuario = row["Nombre_Usuario"].ToString(),
+                    Nombre_Usuario = row["Nombre_Usuario"].ToString(),
 
 				});
 			}

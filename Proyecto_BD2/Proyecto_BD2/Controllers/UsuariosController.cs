@@ -14,16 +14,11 @@ namespace Proyecto_BD2.Controllers
 	{
 		public IActionResult Index(string busqueda)
 		{
-			if (String.IsNullOrEmpty(HttpContext.Session.GetString("userSession")))
-			{
-				return RedirectToAction("Index", "Login");
-			}
-			else
-			{
-				ViewBag.usuario = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("userSession"));
+			
+				
 				ViewBag.Usuarios = CargarUsuarios(busqueda);
 				return View();
-			}
+			
 		}
 
 		private List<User> CargarUsuarios(string busqueda)
@@ -33,7 +28,7 @@ namespace Proyecto_BD2.Controllers
 				busqueda = "";
 			}
 
-			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetUsuariosAll", new List<SqlParameter>(){
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("SP_ObtenerUsuariosAll", new List<SqlParameter>(){
 				new SqlParameter("@busqueda", busqueda),
 			});
 
@@ -41,16 +36,15 @@ namespace Proyecto_BD2.Controllers
 
 			foreach (DataRow row in ds.Rows)
 			{
-				users.Add(new User()
+				users.Add(new 
+					User()
 				{
 					ID_Usuario = row["ID_Usuario"].ToString(),
-					Nombre_Usuario = row["Nombre_Usuario"].ToString(),
-					Cedula_Usuario = row["Cedula_Usuario"].ToString(),
+                    Nombre_Usuario = row["Nombre_Usuario"].ToString(),
+                    Cedula_Usuario = row["Cedula_Usuario"].ToString(),
 					Email_Usuario = row["Email_Usuario"].ToString(),
-					Usuario = row["Usuario"].ToString(),
-					Telefono_Usuario = row["Telefono_Usuario"].ToString(),
 					Tipo_Rol = row["Tipo_Rol"].ToString(),
-					Nombre_Habitacional = row["Nombre_Habitacional"].ToString(),
+					
 					//idPersona = Convert.ToInt32(row["idPersona"]),
 				});
 			}
@@ -111,7 +105,7 @@ namespace Proyecto_BD2.Controllers
 			return habitacionales;
 		}
 
-		public IActionResult AgregarUsuario(string txtNombre, string txtCedula, IFormFile inputPhoto, 
+		public IActionResult AgregarUsuario(string txtNombre,string txtUsuario,string txtCedula, IFormFile inputPhoto, 
 			string txtEmail, string txtPassword, string selectRol,
 			string selectCondominio, string selectViviendas)
 		{
@@ -147,7 +141,7 @@ namespace Proyecto_BD2.Controllers
 					new SqlParameter("@cedula_Usuario", txtCedula),
 					new SqlParameter("@email_Usuario", txtEmail),
 					new SqlParameter("@foto_Usuario", photoPath),
-					new SqlParameter("@usuario", photoPath),
+					new SqlParameter("@usuario", txtUsuario),
 					new SqlParameter("@pass", txtPassword),
 					new SqlParameter("@id_Rol", selectRol),
 					new SqlParameter("@id_Habitacional", selectCondominio),
@@ -193,7 +187,7 @@ namespace Proyecto_BD2.Controllers
 
 			return RedirectToAction("Index", "Usuarios");
 		}
-		public ActionResult Editar(int idPersona)
+		public ActionResult Editar(int id_Usuario)
 		{
 			if (String.IsNullOrEmpty(HttpContext.Session.GetString("userSession")))
 			{
@@ -203,18 +197,18 @@ namespace Proyecto_BD2.Controllers
 			{
 				ViewBag.usuario = JsonConvert.DeserializeObject(HttpContext.Session.GetString("userSession"));
 				ViewBag.rolesUsuarios = CargarRolesUsuarios();
-				ViewBag.usuarioEdit = CargarUsuario(idPersona);
+				ViewBag.usuarioEdit = CargarUsuario(id_Usuario);
 				return View();
 			}
 		}
 
-		private User CargarUsuario(int idPersona)
+		private User CargarUsuario(int id_Usuario)
 		{
 			List<SqlParameter> param = new List<SqlParameter>()
 			{
-				new SqlParameter("@idPersona", idPersona)
+				new SqlParameter("@id_Usuario",id_Usuario )
 			};
-			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("spGetUsuarios", param);
+			DataTable ds = DatabaseHelper.ExecuteStoreProcedure("SP_ObtenerUsuario", param);
 
 			User usuario = new User()
 			{
@@ -228,7 +222,7 @@ namespace Proyecto_BD2.Controllers
 				Tipo_Rol = ds.Rows[0]["Tipo_Rol"].ToString(),
 				ID_Rol = ds.Rows[0]["ID_Rol"].ToString(),
 				ID_Usuario = ds.Rows[0]["ID_Usuario"].ToString(),
-			};
+            };
 
 			return usuario;
 		}

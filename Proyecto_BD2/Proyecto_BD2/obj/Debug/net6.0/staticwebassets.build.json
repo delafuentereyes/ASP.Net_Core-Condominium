@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "b5FOygyVFtSYePD/hkkKHFMptCGi65fhrkpWkCXa1Lw=",
+  "Hash": "kFGO93CQ+QYrcM6CQ2U/BmAEn9Lt7iqJIiFkO3pxTpQ=",
   "Source": "Proyecto_BD2",
   "BasePath": "_content/Proyecto_BD2",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Javi\\Source\\Repos\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\html\\welcome_mail.txt",
+      "SourceId": "Proyecto_BD2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Javi\\Source\\Repos\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\",
+      "BasePath": "_content/Proyecto_BD2",
+      "RelativePath": "html/welcome_mail.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\html\\welcome_mail.txt"
     },
     {
       "Identity": "C:\\Users\\Javi\\Source\\Repos\\Proyecto_BD2\\Proyecto_BD2\\Proyecto_BD2\\wwwroot\\img\\0.jpg",
