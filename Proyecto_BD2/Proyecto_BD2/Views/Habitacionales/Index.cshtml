@@ -16,7 +16,7 @@
 		@foreach (var @item in @ViewBag.Habitacional)
 		{
 			<div class="card" style="width: 18rem;">
-				<img src="..." class="card-img-top" alt="...">
+                <img src="@item.Logo_Habitacional" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title"> @item.Nombre_Habitacional </h5>
 					<p class="card-text"> @item.Direccion_Habitacional </p>

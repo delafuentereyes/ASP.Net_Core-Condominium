@@ -5,76 +5,77 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Proyecto_BD2
 build_property.RootNamespace = Proyecto_BD2
-build_property.ProjectDir = C:\Users\Javi\Source\Repos\Proyecto_BD2\Proyecto_BD2\Proyecto_BD2\
+build_property.ProjectDir = C:\Users\jesus\OneDrive\UMCA\2022\Cuatrimestre III\Bases de Datos II\Proyecto\Proyecto_BD2\Proyecto_BD2\Proyecto_BD2\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Javi\Source\Repos\Proyecto_BD2\Proyecto_BD2\Proyecto_BD2
+build_property.MSBuildProjectDirectory = C:\Users\jesus\OneDrive\UMCA\2022\Cuatrimestre III\Bases de Datos II\Proyecto\Proyecto_BD2\Proyecto_BD2\Proyecto_BD2
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Habitacionales/Create.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Habitacionales/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmFsZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Habitacionales/Editar.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Habitacionales/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmFsZXNcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Habitacionales/Index.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Habitacionales/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmFsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Home/Index.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Home/Privacy.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Login/Index.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/Error.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/ErrorHandler.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/ErrorHandler.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9ySGFuZGxlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/userAccess.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/userAccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXHVzZXJBY2Nlc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Usuarios/Agregar.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Usuarios/Agregar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQWdyZWdhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Usuarios/Editar.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Usuarios/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Usuarios/Index.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Usuarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/_ViewImports.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/_ViewStart.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Javi/Source/Repos/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/_Layout.cshtml]
+[C:/Users/jesus/OneDrive/UMCA/2022/Cuatrimestre III/Bases de Datos II/Proyecto/Proyecto_BD2/Proyecto_BD2/Proyecto_BD2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9qc59il3wm

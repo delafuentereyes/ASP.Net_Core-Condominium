@@ -64,7 +64,7 @@ namespace Proyecto_BD2.Controllers
 			if (inputPhoto != null)
 			{
 				photoPath =
-					"/images/fotos_ph/"
+					"/img/fotos_ph/"
 					+ Guid.NewGuid().ToString()
 					+ new FileInfo(inputPhoto.FileName).Extension;
 
@@ -133,7 +133,7 @@ namespace Proyecto_BD2.Controllers
 			if (inputPhoto != null)
 			{
 				photoPath =
-					"/images/fotos_ph/"
+					"/img/fotos_ph/"
 					+ Guid.NewGuid().ToString()
 					+ new FileInfo(inputPhoto.FileName).Extension;
 
